@@ -1,5 +1,7 @@
 package gui;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import business.*;
@@ -33,5 +35,30 @@ public class VolkshochschulkursControl {
 			view.zeigeFehlermeldungsfensterAn("Unbekannter Fehler beim Speichern!");
 			exc.printStackTrace();
 		} 
+	}
+	public void leseAusDatei(String typ){
+    	try {
+      		if("csv".equals(typ)){
+      			BufferedReader ein = new BufferedReader(new FileReader("Volkshochschulkurs.csv"));
+      			String[] zeile = ein.readLine().split(";");
+      			Volkshochschulkurs av = new Volkshochschulkurs(zeile[0], 
+      				(zeile[1]), 
+      				(zeile[2]), 
+      				zeile[3], zeile[4].split("_"));
+      				ein.close();
+      				view.zeigeInformationsfensterAn("Die Volkshochschulkurs wurden gelesen!");      
+      		}
+       		else{
+       			view.zeigeInformationsfensterAn("Noch nicht implementiert!");
+	   		}
+		}
+		catch(IOException exc){
+			view.zeigeFehlermeldungsfensterAn(
+				"IOException beim Lesen!");
+		}
+		catch(Exception exc){
+			view.zeigeFehlermeldungsfensterAn(
+				"Unbekannter Fehler beim Lesen!");
+		}
 	}
 }

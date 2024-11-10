@@ -132,7 +132,18 @@ public class VolkshochschulkursView {
          	   schreibeVolkshochschulkursInDatei("txt");
             }
  	   });
- 	   
+ 	  mnItmCsvImport.setOnAction(new EventHandler<ActionEvent>() {
+	    	@Override
+	        public void handle(ActionEvent e) {
+	       	 	control.leseAusDatei("csv");
+	    	}
+	    });
+	    mnItmTxtImport.setOnAction(new EventHandler<ActionEvent>() {
+		    @Override
+		    public void handle(ActionEvent e) {
+		     	control.leseAusDatei("txt");
+		    }
+  	});
  	   
  	   
  	   btnEingabe.setOnAction(new EventHandler<ActionEvent>() {
@@ -177,7 +188,9 @@ public class VolkshochschulkursView {
         	catch(Exception exc){
         		zeigeFehlermeldungsfensterAn(exc.getMessage());
       	}
+     	
      }
+     
     
      private void zeigeVolkshochschulkursAn(){
      	if(model.vhk != null){

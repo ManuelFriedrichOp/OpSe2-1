@@ -8,6 +8,8 @@ import business.*;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import ownUtil.MeldungsfensterAnzeiger;
+import business.Volkshochschulkurs;
+import business.VolkshochschulkursModel;
 
 public class VolkshochschulkursControl {
 	
@@ -41,10 +43,10 @@ public class VolkshochschulkursControl {
       		if("csv".equals(typ)){
       			BufferedReader ein = new BufferedReader(new FileReader("Volkshochschulkurs.csv"));
       			String[] zeile = ein.readLine().split(";");
-      			Volkshochschulkurs av = new Volkshochschulkurs(zeile[0], 
-      				(zeile[1]), 
-      				(zeile[2]), 
-      				zeile[3], zeile[4].split("_"));
+      			this.model.setVhk(new Volkshochschulkurs(zeile[0], 
+          				(zeile[1]), 
+          				(zeile[2]), 
+          				zeile[3], zeile[4].split("_")));
       				ein.close();
       				view.zeigeInformationsfensterAn("Die Volkshochschulkurs wurden gelesen!");      
       		}

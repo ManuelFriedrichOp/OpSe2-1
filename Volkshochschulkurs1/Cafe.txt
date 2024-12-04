@@ -1,0 +1,5 @@
+Name des Volkshochschulkurs: da
+Wochentag: afdf
+Startuhrzeit: fds
+Kursbeitrag: fds
+Vorkenntnisse: sfd
